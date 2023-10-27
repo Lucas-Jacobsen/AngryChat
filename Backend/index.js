@@ -32,6 +32,16 @@ app.post("/messages", async (req, res) => {
     })
 })
 
+app.get("/conversation", async(req, res) => {
+    dao.getMessagesByConversation(req.body.user_id, req.body.recipient_id, (messages, error) => {
+        if(error) {
+            console.log(error);
+        } else {
+            return res.json(messages);
+        }
+    })
+})
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 })

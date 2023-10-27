@@ -22,4 +22,14 @@ export class DAO {
             }
         })
     }
+
+    getMessagesByConversation(user_id, recipient_id, callback) {
+        connection.query("SELECT * FROM messages WHERE user_id = ? AND recipient_id = ?", [user_id, recipient_id], (err, results) => {
+            if(err) {
+                callback(err);
+            } else {
+                callback(results);
+            }
+        })
+    }
 }
