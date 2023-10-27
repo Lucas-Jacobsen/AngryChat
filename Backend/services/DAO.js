@@ -32,4 +32,14 @@ export class DAO {
             }
         })
     }
+
+    getConversations(user_id, callback) {
+        connection.query("SELECT DISTINCT recipient_id FROM messages where user_id = ?", [user_id], (err, results) => {
+            if(err) {
+                callback(err);
+            } else {
+                callback(null, results);
+            }
+        })
+    }
 }

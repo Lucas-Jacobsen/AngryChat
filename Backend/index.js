@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 dotenv.config();
 import { DAO } from "./services/DAO.js";
 const app = express();
-const port = 3000;
+const port = 3001;
 
 let dao = new DAO();
 
@@ -32,12 +32,22 @@ app.post("/messages", async (req, res) => {
     })
 })
 
-app.get("/conversation", async(req, res) => {
-    dao.getMessagesByConversation(req.body.user_id, req.body.recipient_id, (messages, error) => {
+app.get("/conversationsMessages", async(req, res) => {
+    dao.getMessagesByConversation(req.body.user_id, req.body.recipient_id, (error, messages) => {
         if(error) {
             console.log(error);
         } else {
             return res.json(messages);
+        }
+    })
+})
+
+app.get("/conversations/:id", async(req, res) => {
+    dao.getConversations(req.params.id, (error, conversations) => {
+        if(error) {
+            console.log(error);
+        } else {
+            return res.json(conversations);
         }
     })
 })
