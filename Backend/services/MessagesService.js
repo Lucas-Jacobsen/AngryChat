@@ -5,6 +5,6 @@ export class MessagesService {
     }
 
     sendMessage = (Message, callback) => {
-
+        console.log(Message);
     }
 }
