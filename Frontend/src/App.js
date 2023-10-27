@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Main from "./Main";
+import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignOutButton, SignIn } from "@clerk/clerk-react";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ClerkProvider publishableKey={"pk_test_Y29vbC1yZWRiaXJkLTkwLmNsZXJrLmFjY291bnRzLmRldiQ"}>
+      {/* These components display if user is signed-in with Clerk */}
+			<SignedIn>
+        <Main/>
+			</SignedIn>
+			{/* These components display if user is not signed-in with Clerk */}
+			<SignedOut>
+        <div style={{width: '100vw', height: '100vh'}}>
+          <div className='center'>
+            <SignIn/>
+          </div>
+        </div>
+			</SignedOut>	
+
+      <SignedIn>
+
+            <SignOutButton>
+
+                <input
+
+                    className={"inputButton"}
+
+                    type="button"
+
+                    value={"Log out"} />
+
+            </SignOutButton>
+
+        </SignedIn>
+	</ClerkProvider>
   );
 }
 
