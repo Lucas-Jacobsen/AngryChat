@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Main from "./Main";
-import { ClerkProvider, SignedIn, SignedOut, SignIn } from "@clerk/clerk-react";
+import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignOutButton, SignIn } from "@clerk/clerk-react";
 
 function App() {
   return (
@@ -18,6 +18,22 @@ function App() {
           </div>
         </div>
 			</SignedOut>	
+
+      <SignedIn>
+
+            <SignOutButton>
+
+                <input
+
+                    className={"inputButton"}
+
+                    type="button"
+
+                    value={"Log out"} />
+
+            </SignOutButton>
+
+        </SignedIn>
 	</ClerkProvider>
   );
 }
