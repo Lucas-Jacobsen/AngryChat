@@ -1,32 +1,50 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { useUser } from "@clerk/clerk-react";
-import { Chatroom } from "./components/Chatroom";
-import axios from "axios"
-import { Conversations } from "./components/Conversations";
+
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import {
+    MainContainer,
+} from "@chatscope/chat-ui-kit-react";
+import Sidebar from "./Sidebar";
+import Chat from "./Chat";
+import Navbar from "./Navbar";
+
 
 export default function Main() {
-    const { user } = useUser();
-    const [conversations, setConversations] = useState(null);
+
+    // User that user is messaging
+    const [focusedUser, setFocusedUser] = useState('');
+
+    // List of user that user is friends with
+    const [userList, setUserList] = useState([]);
+
     useEffect(() => {
-        axios.get(`http://localhost:3001/conversations/${user.id}`).then((response) => {
-            if(response.data) {
-                if(conversations == null) {
-                    setConversations(response.data);
-                }
-            }
-        }, [conversations])
+        // Get backend stuff and set states
+        setFocusedUser('');
+        setUserList([
+            {
+                name: 'Grant'
+            },
+            {
+                name: 'Luke'
+            },
+            {
+                name: 'Ivan'
+            },
+            {
+                name: 'Noah'
+            },
+        ]);
+    }, [])
 
-        
-    })
+    return (
+        <>
+            <Navbar/>
+            <MainContainer style={{ height: '90vh' }}>
+                <Sidebar userList={userList} setFocusedUser={setFocusedUser}/>
+                <Chat focusedUser={focusedUser}/>
+            </MainContainer>
+        </>
 
-    return(
-        <div>
-            <h1>Welcome Back!</h1>
-            <button>Create New Conversation</button>
-
-            {conversations == null ? <h2>No Conversations!</h2> : <Conversations conversations={conversations} />}
-
-        </div>
     );
 }
