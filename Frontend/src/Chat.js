@@ -24,7 +24,9 @@ export default function Chat(props) {
     function update() {
         if (props.focusedUser) {
             console.log(props.focusedUser)
-            axios.get("http://localhost:3000/conversation?user_id=" + props.user.id + "&recipient_id=" + props.focusedUser.recipient_id, {user_id: props.user.id, recipient_id: props.focusedUser.recipient_id}).then((results) => {
+            let endRequest = props.user.id == props.focusedUser.user_id ? props.focusedUser.user_id + "&recipient_id=" + props.focusedUser.recipient_id : props.focusedUser.recipient_id + "&recipient_id=" + props.focusedUser.user_id
+            let request = "http://localhost:3000/conversation?user_id=" + endRequest
+            axios.get(request).then((results) => {
                 console.log(results)
                 let tempMessages = []
                 results.data.forEach((message) => {
@@ -61,7 +63,8 @@ export default function Chat(props) {
     const handleSend = async (message) => {
         // Handle send message logic
         console.log(props.message)
-        axios.post("http://localhost:3000/messages?text=" + message + "&user_id=" + props.user.id + "&recipient_id=" + props.focusedUser.recipient_id).then((results) => {
+        let endRequest = props.user.id == props.focusedUser.user_id ? props.focusedUser.recipient_id : props.focusedUser.user_id
+        axios.post("http://localhost:3000/messages?text=" + message + "&user_id=" + props.user.id + "&recipient_id=" + endRequest).then((results) => {
             console.log(results)
             update();
         })
