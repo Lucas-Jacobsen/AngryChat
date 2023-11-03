@@ -13,8 +13,18 @@ export class DAO {
         })
     }
 
-    createMessage(Message, callback) {
-        connection.query("INSERT INTO messages (message, user_id, recipient_id) VALUES (?,?,?)", [Message.message, Message.user_id, Message.recipient_id], (err, results) => {
+    createMessage(text, user_id, recipient_id, callback) {
+        connection.query("INSERT INTO messages (text, user_id, recipient_id) VALUES (?,?,?)", [text, user_id, recipient_id], (err, results) => {
+            if(err) {
+                callback(err);
+            } else {
+                callback(results);
+            }
+        })
+    }
+
+    deleteMessage(id, callback) {
+        connection.query("DELETE FROM messages WHERE id = ?", [id], (err, results) => {
             if(err) {
                 callback(err);
             } else {
@@ -24,7 +34,17 @@ export class DAO {
     }
 
     getMessagesByConversation(user_id, recipient_id, callback) {
-        connection.query("SELECT * FROM messages WHERE user_id = ? AND recipient_id = ?", [user_id, recipient_id], (err, results) => {
+        connection.query("SELECT * FROM messages WHERE (user_id = ? AND recipient_id = ?) OR (user_id = ? AND recipient_id = ?)", [user_id, recipient_id, recipient_id, user_id], (err, results) => {
+            if(err) {
+                callback(err);
+            } else {
+                callback(results);
+            }
+        })
+    }
+
+    getConversationByUserId(user_id, callback) {
+        connection.query("SELECT * FROM conversations WHERE user_id = ? or recipient_id = ?", [user_id, user_id], (err, results) => {
             if(err) {
                 callback(err);
             } else {
