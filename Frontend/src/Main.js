@@ -8,9 +8,10 @@ import {
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
 import Navbar from "./Navbar";
+import { User } from "@chatscope/use-chat";
 
 
-export default function Main() {
+export default function Main(props) {
 
     // User that user is messaging
     const [focusedUser, setFocusedUser] = useState('');
@@ -19,6 +20,9 @@ export default function Main() {
     const [userList, setUserList] = useState([]);
 
     useEffect(() => {
+        //If user does not exist in database, create user
+        console.log(props.user)
+
         // Get backend stuff and set states
         setFocusedUser('');
         setUserList([
@@ -41,8 +45,8 @@ export default function Main() {
         <>
             <Navbar/>
             <MainContainer style={{ height: '90vh' }}>
-                <Sidebar userList={userList} setFocusedUser={setFocusedUser}/>
-                <Chat focusedUser={focusedUser}/>
+                <Sidebar user={props.user} userList={userList} setFocusedUser={setFocusedUser}/>
+                {focusedUser === null ? <div></div> : <Chat user={props.user} focusedUser={focusedUser}/>}
             </MainContainer>
         </>
 

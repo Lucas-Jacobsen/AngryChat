@@ -9,10 +9,10 @@ dotenv.config();
     }
 
     export let connection = sql.createConnection({
-        host     : process.env.HOST,
-        port     : port,
-        user     : process.env.USERNAME,
-        password : process.env.PASSWORD,
-        database : process.env.DATABASE
+        host     : "127.0.0.1",
+        port     : 3307,
+        user     : "root",
+        password : "root",
+        database : "cst_326"
     })
 
