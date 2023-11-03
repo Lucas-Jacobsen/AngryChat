@@ -8,6 +8,7 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import InviteUser from "./InviteUser";
 
 
 export default function Sidebar(props) {
@@ -15,23 +16,31 @@ export default function Sidebar(props) {
     const [sidebar, setSidebar] = useState([])
 
     useEffect(() => {
-        axios.get("http://localhost:3000/conversationByUser?user_id=" + props.user.id).then((results) => {
-        var conversations =  results.data;
-        console.log("here")
-        console.log(results.data)
-            setSidebar(conversations.map((user) => {
-                return(
-                    <Conversation onClick={() => props.setFocusedUser(user)} name={user.recipient_name} lastSenderName={user.recipient_name} info="RAHHH I AM SO ANGRY!"/>
-                )
-            }))
-        })
+        update();
         
 
     }, []);
 
+    async function update() {
+        await axios.get("http://localhost:3000/conversationByUser?user_id=" + props.user.id).then(async (results) => {
+            var conversations =  results.data;
+            console.log(results.data)
+            setSidebar(conversations.map((user, index) => {
+                return(
+                    <Conversation onClick={() => props.setFocusedUser(user)} name={props.user.id == user.user_id ? user.recipient_name : user.user_name} lastSenderName={props.user.id == user.user_id ? user.recipient_name : user.user_name} info="RAHHH I AM SO ANGRY!"/>
+                )
+            }))
+        })
+    }
+
+    
+
     return (
         <ConversationList>     
             {sidebar}
+            <InviteUser user={props.user} setFocusedUser={props.setFocusedUser} update={update}></InviteUser>
         </ConversationList>
+        
+        
     );
 }

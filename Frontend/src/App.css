@@ -38,9 +38,13 @@
 }
 
 .message {
-  text-align: right;
+  align-items: right;
   padding: 0;
 border: none;
 background: none;
   
+}
+
+.center {
+  text-align: center;
 }
