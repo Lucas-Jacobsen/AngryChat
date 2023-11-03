@@ -9,6 +9,8 @@ const app = express();
 const port = 3000;
 //import cors from 'cors';
 
+import "./services/WebSockets.js";
+
 let dao = new DAO();
 app.use(cors());
 app.use(express.json());

@@ -1,5 +1,7 @@
+import { useEffect, useState } from "react"
+import {io} from "socket.io-client"
+
 export const Conversations = (conversations) => {
-    console.log(conversations.conversations)
     return (
         <div>
             {conversations.conversations.map((conversation) => {
