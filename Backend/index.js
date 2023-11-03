@@ -1,14 +1,19 @@
 import express from "express"
+import cors from "cors";
+
+
 import dotenv from 'dotenv'
 dotenv.config();
 import { DAO } from "./services/DAO.js";
 const app = express();
-const port = 3001;
+const port = 3000;
+//import cors from 'cors';
 
 let dao = new DAO();
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
+
 
 app.get("/messages", async( req, res) => {
     console.log(req.body);
@@ -22,18 +27,29 @@ app.get("/messages", async( req, res) => {
 })
 
 app.post("/messages", async (req, res) => {
-    let message = new Message(req.body.message, req.body.user_id, req.body.recipient_id);
-    dao.createMessage(message, (error) => {
+    //let message = new Message(req.query.text, req.query.user_id, req.query.recipient_id);
+    dao.createMessage(req.query.text, req.query.user_id, req.query.recipient_id, (message, error) => {
         if(error) {
             console.log(error);
         } else {
-            return res.sendStatus(201);
+            return res.json(message);
         }
     })
 })
 
-app.get("/conversationsMessages", async(req, res) => {
-    dao.getMessagesByConversation(req.body.user_id, req.body.recipient_id, (error, messages) => {
+app.delete("/messages", async (req, res) => {
+    //let message = new Message(req.query.text, req.query.user_id, req.query.recipient_id);
+    dao.deleteMessage(req.query.id, (message, error) => {
+        if(error) {
+            console.log(error);
+        } else {
+            return res.json(message);
+        }
+    })
+})
+
+app.get("/conversation", async(req, res) => {
+    dao.getMessagesByConversation(req.query.user_id, req.query.recipient_id, (messages, error) => {
         if(error) {
             console.log(error);
         } else {
@@ -42,8 +58,9 @@ app.get("/conversationsMessages", async(req, res) => {
     })
 })
 
-app.get("/conversations/:id", async(req, res) => {
-    dao.getConversations(req.params.id, (error, conversations) => {
+app.get("/conversationByUser", async(req, res) => {
+    console.log(req.body)
+    dao.getConversationByUserId(req.query.user_id, (conversations, error) => {
         if(error) {
             console.log(error);
         } else {

@@ -6,18 +6,31 @@ import {
     Conversation,
     ConversationList,
 } from "@chatscope/chat-ui-kit-react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 
 export default function Sidebar(props) {
 
-    const sidebar = props.userList.map((user) => {
-        return(
-            <Conversation onClick={() => props.setFocusedUser(user)} name={user.name} lastSenderName={user.name} info="RAHHH I AM SO ANGRY!"/>
-        )
-    })
+    const [sidebar, setSidebar] = useState([])
+
+    useEffect(() => {
+        axios.get("http://localhost:3000/conversationByUser?user_id=" + props.user.id).then((results) => {
+        var conversations =  results.data;
+        console.log("here")
+        console.log(results.data)
+            setSidebar(conversations.map((user) => {
+                return(
+                    <Conversation onClick={() => props.setFocusedUser(user)} name={user.recipient_name} lastSenderName={user.recipient_name} info="RAHHH I AM SO ANGRY!"/>
+                )
+            }))
+        })
+        
+
+    }, []);
 
     return (
-        <ConversationList>            
+        <ConversationList>     
             {sidebar}
         </ConversationList>
     );

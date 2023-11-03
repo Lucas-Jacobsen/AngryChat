@@ -8,12 +8,40 @@ import {
     MessageList,
     Message,
     MessageInput,
+    MessageGroup
 } from "@chatscope/chat-ui-kit-react";
+import { useEffect } from "react";
+import axios from "axios";
 
 
 export default function Chat(props) {
 
     // const [messages, setMessages] = useState(props.focusedUser.messages);
+    useEffect(() => {
+        update();
+    }, [props]);
+
+    function update() {
+        if (props.focusedUser) {
+            console.log(props.focusedUser)
+            axios.get("http://localhost:3000/conversation?user_id=" + props.user.id + "&recipient_id=" + props.focusedUser.recipient_id, {user_id: props.user.id, recipient_id: props.focusedUser.recipient_id}).then((results) => {
+                console.log(results)
+                let tempMessages = []
+                results.data.forEach((message) => {
+                    tempMessages.push({
+                        message: message.text,
+                        sentTime: "just now",
+                        direction: message.user_id == props.user.id ? "outgoing" : "incoming",
+                        position: "normal",
+                        id: message.id
+                    })
+                })
+                console.log(tempMessages)
+                setMessages(tempMessages)
+            })
+        }
+    }
+
     const [messages, setMessages] = useState([]);
 
     // Implement this when Frontend is connected to Backend
@@ -32,20 +60,42 @@ export default function Chat(props) {
     // Implement this when Frontend is connected to Backend
     const handleSend = async (message) => {
         // Handle send message logic
+        console.log(props.message)
+        axios.post("http://localhost:3000/messages?text=" + message + "&user_id=" + props.user.id + "&recipient_id=" + props.focusedUser.recipient_id).then((results) => {
+            console.log(results)
+            update();
+        })
     }
+
+    function deleteMessage(event) {
+        console.log(event.target.id)
+        axios.delete("http://localhost:3000/messages?id=" + event.target.id).then(() => {
+            update();
+        });
+    }
+
+    
 
     return (
         <MainContainer style={{ height: '90vh', width: '100%' }}>
             <ChatContainer>
                 <MessageList>
                     {/* {messageList} */}
-                    <Message
-                        model={{
-                            message: "My name is " + props.focusedUser.name + " and I hate you.",
-                            sentTime: "just now",
-                            sender: props.focusedUser,
-                        }}
-                    />
+                    {messages.map((message) => {
+                        return (
+                            <div>
+                            <MessageGroup direction={message.direction}>
+                            <MessageGroup.Messages>
+                            <Message
+                                model={message}
+                            />
+                            </MessageGroup.Messages>
+                            {message.direction == "outgoing" ? <MessageGroup.Footer direction={message.direction}><div className="message"><button className="message" onClick={deleteMessage} id={message.id}>delete</button></div></MessageGroup.Footer> : ""}
+                            
+                            </MessageGroup>
+                            </div>
+                        )
+                    })}
                 </MessageList>
                 <MessageInput
                     placeholder="Type message here"
