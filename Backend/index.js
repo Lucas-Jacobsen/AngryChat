@@ -6,7 +6,7 @@ import dotenv from 'dotenv'
 dotenv.config();
 import { DAO } from "./services/DAO.js";
 const app = express();
-const port = 3001;
+const port = 3000;
 //import cors from 'cors';
 
 import "./services/WebSockets.js";
