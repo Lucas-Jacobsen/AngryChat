@@ -1,10 +1,17 @@
 import sql from "mysql";
 
+
+let port = 3306;
+if(os.platform() == "darwin") {
+    port = 8889;
+}
+
+
     export let connection = sql.createConnection({
         host     : "127.0.0.1",
-        port     : 8889,
+        port     : port,
         user     : "root",
         password : "root",
-        database : "cst326"
+        database : "cst_326"
     })
 
