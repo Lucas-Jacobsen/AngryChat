@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
+import {io} from "socket.io-client"
 
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {
@@ -14,35 +15,53 @@ import { useEffect } from "react";
 import axios from "axios";
 import gptMessageService from "../services/gptMessageService";
 
-
 export default function Chat(props) {
-    
-    useEffect(() => {
-        update();
-    }, [props]);
 
-    function update() {
+    const socket = io("http://localhost:3002");
+
+    useEffect(() => {
+        const room = 1;
+        socket.emit("join", room);
+        load();
+    }, [props.focusedUser]);
+
+    useEffect(() => {
+        
+        socket.on("message", (data) => {
+            data = formatMessage(data);
+            console.log(data)
+            setMessages((prevMessages) => [...prevMessages, data]);
+            console.log(messages)
+        });
+    }, [])
+
+    function formatMessage(message) {
+        let formattedMessage = {
+            message: message.text,
+            sentTime: "just now",
+            direction: message.user_id == props.user.id ? "outgoing" : "incoming",
+            position: "normal",
+            id: message.id
+        }
+        return formattedMessage;
+    }
+
+    function load() {
         if (props.focusedUser) {
-            console.log(props.focusedUser)
             let endRequest = props.user.id == props.focusedUser.user_id ? props.focusedUser.user_id + "&recipient_id=" + props.focusedUser.recipient_id : props.focusedUser.recipient_id + "&recipient_id=" + props.focusedUser.user_id
             let request = "http://localhost:3000/conversation?user_id=" + endRequest
+
             axios.get(request).then((results) => {
-                console.log(results)
                 let tempMessages = []
                 results.data.forEach((message) => {
-                    tempMessages.push({
-                        message: message.text,
-                        sentTime: "just now",
-                        direction: message.user_id == props.user.id ? "outgoing" : "incoming",
-                        position: "normal",
-                        id: message.id
-                    })
+                    tempMessages.push(formatMessage(message));
                 })
-                console.log(tempMessages)
                 setMessages(tempMessages)
+                console.log(messages);
             })
         }
     }
+
 
     const [messages, setMessages] = useState([]);
 
@@ -57,14 +76,15 @@ export default function Chat(props) {
         // Sends to API
         axios.post("http://localhost:3000/messages?text=" + translatedMessage + "&user_id=" + props.user.id + "&recipient_id=" + endRequest).then((results) => {
             console.log(results)
-            update();
         })
+        let socketMessage = {"text": translatedMessage, "user_id": props.user.id, "recipient_id": props.recipient_id};
+        socket.emit("message", socketMessage);
     }
 
     function deleteMessage(event) {
         console.log(event.target.id)
         axios.delete("http://localhost:3000/messages?id=" + event.target.id).then(() => {
-            update();
+            load();
         });
     }
 

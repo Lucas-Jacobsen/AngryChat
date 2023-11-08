@@ -7,11 +7,9 @@ import { ClerkProvider } from '@clerk/clerk-react';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <ClerkProvider publishableKey={"pk_test_Y29vbC1yZWRiaXJkLTkwLmNsZXJrLmFjY291bnRzLmRldiQ"}>
       <App />
     </ClerkProvider>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
