@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
+import "../App.css";
 
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {
@@ -50,23 +50,23 @@ export default function Main(props) {
             await axios.get("http://localhost:3000/users?email_address=" + props.user.primaryEmailAddress.emailAddress).then((results) => {
                 console.log(results)
                 console.log(results.data.length == 0)
-            if (results.data.length == 0) {
-                axios.post("http://localhost:3000/users?user_id=" + props.user.id + "&email_address=" + props.user.primaryEmailAddress.emailAddress + "&firstName=" + props.user.firstName + "&lastName=" + props.user.lastName).then((results) => {
-                    console.log(results)
-                })
-                
-            }
+                if (results.data.length == 0) {
+                    axios.post("http://localhost:3000/users?user_id=" + props.user.id + "&email_address=" + props.user.primaryEmailAddress.emailAddress + "&firstName=" + props.user.firstName + "&lastName=" + props.user.lastName).then((results) => {
+                        console.log(results)
+                    })
+
+                }
             });
-            
+
         }
     }
 
     return (
         <>
-            <Navbar/>
+            <Navbar />
             <MainContainer style={{ height: '90vh' }}>
-                <Sidebar user={props.user} userList={userList} setFocusedUser={setFocusedUser}/>
-                {focusedUser === null ? <div></div> : <Chat user={props.user} focusedUser={focusedUser}/>}
+                <Sidebar user={props.user} userList={userList} setFocusedUser={setFocusedUser} />
+                {focusedUser === null ? <div></div> : <Chat user={props.user} focusedUser={focusedUser} />}
             </MainContainer>
         </>
 
