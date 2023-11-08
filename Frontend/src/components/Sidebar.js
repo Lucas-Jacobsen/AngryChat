@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "../App.css";
 
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {
@@ -27,7 +27,7 @@ export default function Sidebar(props) {
             console.log(results.data)
             setSidebar(conversations.map((user, index) => {
                 return(
-                    <Conversation onClick={() => props.setFocusedUser(user)} name={props.user.id == user.user_id ? user.recipient_name : user.user_name} lastSenderName={props.user.id == user.user_id ? user.recipient_name : user.user_name} info="RAHHH I AM SO ANGRY!"/>
+                    <Conversation onClick={() => props.setFocusedUser(user)} name={props.user.id === user.user_id ? user.recipient_name : user.user_name} lastSenderName={props.user.id == user.user_id ? user.recipient_name : user.user_name} info="RAHHH I AM SO ANGRY!"/>
                 )
             }))
         })
