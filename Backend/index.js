@@ -17,6 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 
+
 app.get("/messages", async( req, res) => {
     console.log(req.body);
     dao.getMessagesByUserId(req.body.id, (messages, error) => {
@@ -122,6 +123,11 @@ app.post("/users", async(req, res) => {
             return res.json(conversations);
         }
     })
+})
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 })
 
 app.listen(port, () => {
