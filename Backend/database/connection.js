@@ -1,4 +1,5 @@
 import sql from "mysql";
+import os from "os"
 
 
 let port = 3306;
