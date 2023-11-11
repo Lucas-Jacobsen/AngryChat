@@ -8,10 +8,10 @@ if(os.platform() == "darwin") {
 
 
     export let connection = sql.createConnection({
-        host     : "127.0.0.1",
-        port     : port,
-        user     : "root",
-        password : "root",
-        database : "cst_326"
+        host     : "j8oay8teq9xaycnm.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+        port     : 3306,
+        user     : "c7tn28mg8fu5w2bz",
+        password : "tkyccz0vsu49b75z",
+        database : "c5mm0aic6ljm3kc5"
     })
 

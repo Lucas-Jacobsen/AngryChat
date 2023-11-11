@@ -1,15 +1,16 @@
 import express from "express"
 import cors from "cors";
-
-
 import dotenv from 'dotenv'
-dotenv.config();
 import { DAO } from "./services/DAO.js";
+import "./services/WebSockets.js";
+
+
+
+dotenv.config();
 const app = express();
 const port = 3000;
 //import cors from 'cors';
 
-import "./services/WebSockets.js";
 
 let dao = new DAO();
 app.use(cors());
