@@ -42,7 +42,7 @@ export default function Main(props) {
                 name: 'Noah'
             },
         ]);
-    },)
+    },[])
 
     async function getUser() {
         console.log(props.user.primaryEmailAddress.emailAddress)

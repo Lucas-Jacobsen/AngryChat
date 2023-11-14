@@ -21,7 +21,7 @@ export default function Sidebar(props) {
         update();
         
 
-    },);
+    },[]);
 
     async function update() {
         await axios.get(baseURL + "/conversationByUser?user_id=" + props.user.id).then(async (results) => {

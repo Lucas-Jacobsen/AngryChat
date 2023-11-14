@@ -34,7 +34,7 @@ export default function Chat(props) {
             setMessages((prevMessages) => [...prevMessages, data]);
             console.log(messages)
         });
-    },)
+    },[])
 
     function formatMessage(message) {
         let formattedMessage = {
