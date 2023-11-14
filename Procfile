@@ -1,2 +1,1 @@
-web: npm start --prefix Frontend
-api: node index.js --prefix Backend
+web: cd frontend && npm install && npm run build && cd ../backend && npm install && npm start
