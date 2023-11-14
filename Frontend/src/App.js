@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import Main from "./components/Main";
-import { ClerkProvider, SignedIn, SignedOut, SignIn, useUser } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignIn, useUser } from "@clerk/clerk-react";
 
 function App() {
   const { user } = useUser();

@@ -8,9 +8,7 @@ import {
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
 import Navbar from "./Navbar";
-import { User } from "@chatscope/use-chat";
 import axios from "axios";
-import { getSuggestedQuery } from "@testing-library/react";
 
 
 export default function Main(props) {
@@ -44,15 +42,15 @@ export default function Main(props) {
                 name: 'Noah'
             },
         ]);
-    }, [])
+    },)
 
     async function getUser() {
         console.log(props.user.primaryEmailAddress.emailAddress)
         if (props.user) {
             await axios.get(baseURL + "/users?email_address=" + props.user.primaryEmailAddress.emailAddress).then((results) => {
                 console.log(results)
-                console.log(results.data.length == 0)
-                if (results.data.length == 0) {
+                console.log(results.data.length === 0)
+                if (results.data.length === 0) {
                     axios.post(baseURL + "/users?user_id=" + props.user.id + "&email_address=" + props.user.primaryEmailAddress.emailAddress + "&firstName=" + props.user.firstName + "&lastName=" + props.user.lastName).then((results) => {
                         console.log(results)
                     })

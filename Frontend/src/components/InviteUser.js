@@ -2,10 +2,6 @@ import React from "react";
 import "../App.css";
 
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
-import {
-    Conversation,
-    ConversationList,
-} from "@chatscope/chat-ui-kit-react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
@@ -15,7 +11,7 @@ export default function InviteUser(props) {
     const [user, setUser] = useState("");
     const [users, setUsers] = useState([]);
     const [names, setNames] = useState([]);
-    const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com/"
+    const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com/";
     useEffect(() => {
         axios.get(baseURL + "/getAllUsers").then((result) => {
             let tempUsers = [];

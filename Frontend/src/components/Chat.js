@@ -18,7 +18,7 @@ import gptMessageService from "../services/gptMessageService";
 export default function Chat(props) {
 
     const socket = io("http://localhost:3002");
-    const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com"
+    const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com";
 
     useEffect(() => {
         const room = 1;
@@ -34,13 +34,13 @@ export default function Chat(props) {
             setMessages((prevMessages) => [...prevMessages, data]);
             console.log(messages)
         });
-    }, [])
+    },)
 
     function formatMessage(message) {
         let formattedMessage = {
             message: message.text,
             sentTime: "just now",
-            direction: message.user_id == props.user.id ? "outgoing" : "incoming",
+            direction: message.user_id === props.user.id ? "outgoing" : "incoming",
             position: "normal",
             id: message.id
         }
@@ -49,7 +49,7 @@ export default function Chat(props) {
 
     function load() {
         if (props.focusedUser) {
-            let endRequest = props.user.id == props.focusedUser.user_id ? props.focusedUser.user_id + "&recipient_id=" + props.focusedUser.recipient_id : props.focusedUser.recipient_id + "&recipient_id=" + props.focusedUser.user_id
+            let endRequest = props.user.id === props.focusedUser.user_id ? props.focusedUser.user_id + "&recipient_id=" + props.focusedUser.recipient_id : props.focusedUser.recipient_id + "&recipient_id=" + props.focusedUser.user_id
             let request = baseURL + "/conversation?user_id=" + endRequest
 
             axios.get(request).then((results) => {

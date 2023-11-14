@@ -21,7 +21,7 @@ export default function Sidebar(props) {
         update();
         
 
-    }, []);
+    },);
 
     async function update() {
         await axios.get(baseURL + "/conversationByUser?user_id=" + props.user.id).then(async (results) => {
@@ -29,7 +29,7 @@ export default function Sidebar(props) {
             console.log(results.data)
             setSidebar(conversations.map((user, index) => {
                 return(
-                    <Conversation onClick={() => props.setFocusedUser(user)} name={props.user.id === user.user_id ? user.recipient_name : user.user_name} lastSenderName={props.user.id == user.user_id ? user.recipient_name : user.user_name} info="RAHHH I AM SO ANGRY!"/>
+                    <Conversation onClick={() => props.setFocusedUser(user)} name={props.user.id === user.user_id ? user.recipient_name : user.user_name} lastSenderName={props.user.id === user.user_id ? user.recipient_name : user.user_name} info=" I AM SO ANGRY!"/>
                 )
             }))
         })
