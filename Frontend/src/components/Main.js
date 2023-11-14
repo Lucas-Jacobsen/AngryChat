@@ -21,6 +21,8 @@ export default function Main(props) {
     // List of user that user is friends with
     const [userList, setUserList] = useState([]);
 
+    const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com/"
+
     useEffect(() => {
         //If user does not exist in database, create user
         console.log(props.user)
@@ -47,11 +49,11 @@ export default function Main(props) {
     async function getUser() {
         console.log(props.user.primaryEmailAddress.emailAddress)
         if (props.user) {
-            await axios.get("http://localhost:3000/users?email_address=" + props.user.primaryEmailAddress.emailAddress).then((results) => {
+            await axios.get(baseURL + "/users?email_address=" + props.user.primaryEmailAddress.emailAddress).then((results) => {
                 console.log(results)
                 console.log(results.data.length == 0)
                 if (results.data.length == 0) {
-                    axios.post("http://localhost:3000/users?user_id=" + props.user.id + "&email_address=" + props.user.primaryEmailAddress.emailAddress + "&firstName=" + props.user.firstName + "&lastName=" + props.user.lastName).then((results) => {
+                    axios.post(baseURL + "/users?user_id=" + props.user.id + "&email_address=" + props.user.primaryEmailAddress.emailAddress + "&firstName=" + props.user.firstName + "&lastName=" + props.user.lastName).then((results) => {
                         console.log(results)
                     })
 

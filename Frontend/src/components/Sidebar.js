@@ -15,6 +15,8 @@ export default function Sidebar(props) {
 
     const [sidebar, setSidebar] = useState([])
 
+    const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com/"
+
     useEffect(() => {
         update();
         
@@ -22,7 +24,7 @@ export default function Sidebar(props) {
     }, []);
 
     async function update() {
-        await axios.get("http://localhost:3000/conversationByUser?user_id=" + props.user.id).then(async (results) => {
+        await axios.get(baseURL + "/conversationByUser?user_id=" + props.user.id).then(async (results) => {
             var conversations =  results.data;
             console.log(results.data)
             setSidebar(conversations.map((user, index) => {

@@ -18,6 +18,7 @@ import gptMessageService from "../services/gptMessageService";
 export default function Chat(props) {
 
     const socket = io("http://localhost:3002");
+    const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com"
 
     useEffect(() => {
         const room = 1;
@@ -49,7 +50,7 @@ export default function Chat(props) {
     function load() {
         if (props.focusedUser) {
             let endRequest = props.user.id == props.focusedUser.user_id ? props.focusedUser.user_id + "&recipient_id=" + props.focusedUser.recipient_id : props.focusedUser.recipient_id + "&recipient_id=" + props.focusedUser.user_id
-            let request = "http://localhost:3000/conversation?user_id=" + endRequest
+            let request = baseURL + "/conversation?user_id=" + endRequest
 
             axios.get(request).then((results) => {
                 let tempMessages = []
@@ -68,13 +69,13 @@ export default function Chat(props) {
     // Implement this when Frontend is connected to Backend
     const handleSend = async (message) => {
         // Handle send message logic
-        let endRequest = props.user.id == props.focusedUser.user_id ? props.focusedUser.recipient_id : props.focusedUser.user_id
+        let endRequest = props.user.id === props.focusedUser.user_id ? props.focusedUser.recipient_id : props.focusedUser.user_id
         
         // Translates message to angry
         const translatedMessage = await gptMessageService.translateMessage(message);
         
         // Sends to API
-        axios.post("http://localhost:3000/messages?text=" + translatedMessage + "&user_id=" + props.user.id + "&recipient_id=" + endRequest).then((results) => {
+        axios.post(baseURL + "/messages?text=" + translatedMessage + "&user_id=" + props.user.id + "&recipient_id=" + endRequest).then((results) => {
             console.log(results)
         })
         let socketMessage = {"text": translatedMessage, "user_id": props.user.id, "recipient_id": props.recipient_id};
@@ -83,7 +84,7 @@ export default function Chat(props) {
 
     function deleteMessage(event) {
         console.log(event.target.id)
-        axios.delete("http://localhost:3000/messages?id=" + event.target.id).then(() => {
+        axios.delete(baseURL +"/messages?id=" + event.target.id).then(() => {
             load();
         });
     }
@@ -101,7 +102,7 @@ export default function Chat(props) {
                                         model={message}
                                     />
                                 </MessageGroup.Messages>
-                                {message.direction == "outgoing" ? <MessageGroup.Footer direction={message.direction}><div className="message"><button className="message" onClick={deleteMessage} id={message.id}>delete</button></div></MessageGroup.Footer> : ""}
+                                {message.direction === "outgoing" ? <MessageGroup.Footer direction={message.direction}><div className="message"><button className="message" onClick={deleteMessage} id={message.id}>delete</button></div></MessageGroup.Footer> : ""}
                                 
                             </MessageGroup>
                         </>
