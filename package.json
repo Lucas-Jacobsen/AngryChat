@@ -2,8 +2,5 @@
     "scripts": {
         "start": "cd Backend && node index.js",
         "build": "cd Frontend && npm install && npm run build"
-    },
-    "dependencies": {
-        "express": "^4.18.2"
     }
 }
