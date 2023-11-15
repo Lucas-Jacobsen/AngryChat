@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
 import {io} from "socket.io-client"
-import {Server} from "socket.io";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {
     MainContainer,
@@ -18,8 +17,7 @@ import gptMessageService from "../services/gptMessageService";
 export default function Chat(props) {
 
 
-    //const socket = io("http://localhost:3002");
-    const socket = new Server(3000);
+    const socket = io("http://localhost:3002");
     const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com";
 
     useEffect(() => {
