@@ -15,7 +15,7 @@ export default function Sidebar(props) {
 
     const [sidebar, setSidebar] = useState([])
 
-    const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com/"
+    const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com"
 
     useEffect(() => {
         update();

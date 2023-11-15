@@ -19,7 +19,7 @@ export default function Main(props) {
     // List of user that user is friends with
     const [userList, setUserList] = useState([]);
 
-    const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com/"
+    const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com"
 
     useEffect(() => {
         //If user does not exist in database, create user
