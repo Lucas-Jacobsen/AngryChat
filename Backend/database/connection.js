@@ -1,18 +1,18 @@
 import sql from "mysql";
 import os from "os"
-import dotenv from 'dotenv'
-dotenv.config();
 
-    let port = process.env.WINPORT;
-    if(os.platform() == "darwin") {
-        port = process.env.MACPORT;
-    }
+
+let port = 3306;
+if(os.platform() == "darwin") {
+    port = 8889;
+}
+
 
     export let connection = sql.createConnection({
-        host     : process.env.HOST,
+        host     : "127.0.0.1",
         port     : port,
-        user     : process.env.USERNAME,
-        password : process.env.PASSWORD,
-        database : process.env.DATABASE
+        user     : "root",
+        password : "root",
+        database : "cst_326"
     })
 
