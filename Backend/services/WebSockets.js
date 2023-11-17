@@ -1,7 +1,7 @@
 import {Server} from "socket.io";
 
 export const io = new Server();
-
+console.log(io);
 let userRoom = null;
 io.on("connection", (socket) => {
     socket.on("join", (room) => {
