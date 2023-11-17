@@ -11,5 +11,6 @@ export let connection = sql.createConnection({
     port     : port,
     user     : process.env.user,
     password : process.env.password,
-    database : process.env.database
+    database : process.env.database,
+    insecureAuth: true
 })
