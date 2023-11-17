@@ -7,12 +7,11 @@ if(os.platform() == "darwin") {
     port = 8889;
 }
 
-
-    export let connection = sql.createConnection({
-        host     : "127.0.0.1",
-        port     : port,
-        user     : "root",
-        password : "root",
-        database : "cst_326"
-    })
+export let connection = sql.createConnection({
+    host     : process.env.host,
+    port     : port,
+    user     : process.env.user,
+    password : process.env.password,
+    database : process.env.database
+})
 
