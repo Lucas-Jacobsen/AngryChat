@@ -4,6 +4,7 @@ export const io = new Server();
 
 let userRoom = null;
 io.on("connection", (socket) => {
+    console.log("Connected a User");
     socket.on("join", (room) => {
         userRoom = room;
         socket.join(userRoom);
