@@ -1,20 +1,22 @@
 import express from "express"
 import cors from "cors";
-
-
 import dotenv from 'dotenv'
-dotenv.config();
 import { DAO } from "./services/DAO.js";
+import "./services/WebSockets.js";
+
+
+
+dotenv.config();
 const app = express();
-const port = 3000;
+const port =  process.env.PORT || 3000;
 //import cors from 'cors';
 
-import "./services/WebSockets.js";
 
 let dao = new DAO();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
+
 
 
 app.get("/messages", async( req, res) => {
@@ -122,6 +124,12 @@ app.post("/users", async(req, res) => {
             return res.json(conversations);
         }
     })
+})
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
 })
 
 app.listen(port, () => {
