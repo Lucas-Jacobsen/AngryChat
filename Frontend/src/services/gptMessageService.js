@@ -1,10 +1,9 @@
 // OpenAI & .env imports
-import env from '../env.json'
 import OpenAI from 'openai';
 
 // OpenAI API configuration
 const openai = new OpenAI({
-    apiKey: env['OPENAI_API_KEY'],
+    apiKey: process.env.REACT_APP_OPENAI_KEY,
     dangerouslyAllowBrowser: true
 });
 
@@ -18,8 +17,9 @@ const gptMessageService = {
             messages: [
                 {
                     role: 'user',
-                    content: `Please translate the following message into an angry chat: ${message}.
-                        You may not use swear words, but the usage of comical insults is encouraged.`
+                    content: `Please rewrite the following message into an angry chat: ${message}.
+                        You may not use swear words, but the usage of comical insults is encouraged.
+                        Make sure not to respond to the message, rather, rewrite the message into something new.`
                 }
             ]
         })
