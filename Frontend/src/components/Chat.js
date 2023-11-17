@@ -17,7 +17,7 @@ import gptMessageService from "../services/gptMessageService";
 export default function Chat(props) {
 
 
-    const socket = io("http://localhost:3002");
+    const socket = io("https://angrychat-backend-98dcd3d26a9e.herokuapp.com:3002");
     const baseURL = "https://angrychat-backend-98dcd3d26a9e.herokuapp.com";
 
     useEffect(() => {
