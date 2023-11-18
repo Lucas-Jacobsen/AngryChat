@@ -4,6 +4,9 @@ import {
   Drawer,
   Divider,
   Stack,
+  List,
+  ListItem,
+  ListItemText,
   Box,
   Button,
   CardActionArea,
@@ -37,25 +40,24 @@ export default function Sidebar(props) {
         var conversations = results.data;
         setSidebar(
           conversations.map((user) => (
-            <CardActionArea
-              key={user.id}
-              onClick={() => props.setFocusedUser(user)}
-            >
-              <Divider />
-              <Nameplate
-                name={
-                  props.user.id === user.user_id
-                    ? user.recipient_name
-                    : user.user_name
-                }
-                lastSenderName={
-                  props.user.id === user.user_id
-                    ? user.recipient_name
-                    : user.user_name
-                }
-                lastMessage="RAHHH I AM SO ANGRY!"
-              />
-            </CardActionArea>
+            <div key={user.id}>
+              <CardActionArea onClick={() => props.setFocusedUser(user)}>
+                <Divider />
+                <Nameplate
+                  name={
+                    props.user.id === user.user_id
+                      ? user.recipient_name
+                      : user.user_name
+                  }
+                  lastSenderName={
+                    props.user.id === user.user_id
+                      ? user.recipient_name
+                      : user.user_name
+                  }
+                  lastMessage="RAHHH I AM SO ANGRY!"
+                />
+              </CardActionArea>
+            </div>
           ))
         );
       });
@@ -64,8 +66,10 @@ export default function Sidebar(props) {
   return (
     <>
       {!isMobile && (
-        <Stack direction="column" sx={{ width: "75%"}}>
-          {sidebar}
+        <Stack direction="column" sx={{ width: "75%" }}>
+          <List style={{ maxHeight: "500px", overflowY: "auto" }}>
+            {sidebar}
+          </List>
           <InviteUser
             user={props.user}
             setFocusedUser={props.setFocusedUser}
@@ -82,11 +86,14 @@ export default function Sidebar(props) {
             anchor="left"
             open={isDrawerOpen}
             onClose={toggleDrawer}
-            
           >
-            <Button onClick={toggleDrawer} style={{padding:"15%"}}>Close Sidebar</Button>
-            <Stack direction="column" sx={{ width: "75%" ,paddingBottom:"10%" }}>
-              {sidebar}
+            <Button onClick={toggleDrawer} style={{ padding: "15%" }}>
+              Close Sidebar
+            </Button>
+            <Stack direction="column" sx={{ width: "75%", paddingBottom: "10%" }}>
+              <List style={{ maxHeight: "100%", overflowY: "auto" }}>
+                {sidebar}
+              </List>
               <InviteUser
                 user={props.user}
                 setFocusedUser={props.setFocusedUser}
