@@ -2,18 +2,23 @@ import express from "express"
 import cors from "cors";
 import dotenv from 'dotenv'
 import { DAO } from "./services/DAO.js";
-import { httpServer } from "./services/WebSockets.js";
+import {Server} from "socket.io";
+import { createServer } from "http";
+
 
 dotenv.config();
 const app = express();
 const port =  process.env.PORT || 3000;
 //import cors from 'cors';
 
+export const httpServer = createServer(app)
+export const io = new Server(httpServer);
+
+import("./services/WebSockets.js");
 
 let dao = new DAO();
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded());
 
 
 
@@ -131,6 +136,7 @@ app.use((req, res, next) => {
 })
 
  httpServer.listen(port, () => {
+    console.log(httpServer)
     console.log(`Listening on port ${port}`);
 })
 
