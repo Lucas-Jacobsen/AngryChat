@@ -23,36 +23,36 @@ AngryChat is a unique messaging web app that adds a humorous twist to your regul
 
 Meet the awesome developers behind AngryChat:
 
-### John Doe
+### Grant Lindquist 
 
-![John Doe](url-to-image)
+<!--![Grant](url-to-image) -->
 
-- **Role:** Full Stack Developer
-- **GitHub:** [JohnDoe](https://github.com/JohnDoe)
+- **Role:** Project Manager 
+- **GitHub:** [Grant](https://github.com/GrantLindquist)
 - **Bio:** Enthusiastic coder with a passion for creating engaging web applications. Specializes in React and Node.js development.
 
-### Jane Smith
+### Noah Ice
 
-![Jane Smith](url-to-image)
+ <!--![Noah](url-to-image) -->
 
-- **Role:** Backend Developer
-- **GitHub:** [JaneSmith](https://github.com/JaneSmith)
+- **Role:** Developer
+- **GitHub:** [Noah](https://github.com/NoahIce)
 - **Bio:** Experienced backend engineer with a knack for building robust and scalable APIs. Loves working with databases and optimizing server-side performance.
 
-### Alex Johnson
+### Ivan Gudino
 
-![Alex Johnson](url-to-image)
+ <!-- ![Ivan](url-to-image) -->
 
-- **Role:** Frontend Developer
-- **GitHub:** [AlexJohnson](https://github.com/AlexJohnson)
+- **Role:** Developer
+- **GitHub:** [Ivan](https://github.com/Raptas1)
 - **Bio:** Creative frontend developer with an eye for design. Enjoys crafting beautiful and responsive user interfaces using React and modern web technologies.
 
-### Emily Rodriguez
+### Lucas Jacobsen
 
-![Emily Rodriguez](url-to-image)
+<!-- ![Lucas](url-to-image) -->
 
-- **Role:** UX/UI Designer
-- **GitHub:** [EmilyRodriguez](https://github.com/EmilyRodriguez)
+- **Role:** Developer
+- **GitHub:** [Lucas](https://github.com/lucas-jacobsen)
 - **Bio:** Passionate about creating seamless and user-friendly experiences. Excels in user interface design and understands the importance of user-centered design principles.
 
-Feel free to join us and contribute to AngryChat! Check out our [contributing guidelines](CONTRIBUTING.md) for more information.
+
