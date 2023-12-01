@@ -5,10 +5,10 @@ import { DAO } from "./services/DAO.js";
 import "./services/WebSockets.js";
 
 
-
 dotenv.config();
 const app = express();
 const port =  process.env.PORT || 3000;
+export const server = require('http').Server(app);
 //import cors from 'cors';
 
 
@@ -135,3 +135,4 @@ app.use((req, res, next) => {
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 })
+
