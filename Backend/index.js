@@ -1,13 +1,12 @@
-import express from "express";
+import express from "express"
 import cors from "cors";
-import dotenv from 'dotenv';
+import dotenv from 'dotenv'
 import { DAO } from "./services/DAO.js";
-import { createServer } from 'http';
+import { httpServer } from "./services/WebSockets.js";
 
 dotenv.config();
 const app = express();
-const port = process.env.PORT || 3000;
-export const server = createServer(app);
+const port =  process.env.PORT || 3000;
 //import cors from 'cors';
 
 
@@ -131,7 +130,7 @@ app.use((req, res, next) => {
     next();
 })
 
-server.listen(port, () => {
+ httpServer.listen(port, () => {
     console.log(`Listening on port ${port}`);
 })
 
