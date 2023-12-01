@@ -12,7 +12,13 @@ const port =  process.env.PORT || 3000;
 //import cors from 'cors';
 
 export const httpServer = createServer(app)
-export const io = new Server(httpServer);
+
+export const io = new Server(httpServer, {
+  cors: {
+    origin: "https://angrychat-frontend-d69df51a96e6.herokuapp.com",
+    methods: ["GET", "POST"],
+  },
+});
 
 import("./services/WebSockets.js");
 
