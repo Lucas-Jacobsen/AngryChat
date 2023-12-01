@@ -8,7 +8,7 @@ import "./services/WebSockets.js";
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
-const server = createServer(app);
+export const server = createServer(app);
 //import cors from 'cors';
 
 
