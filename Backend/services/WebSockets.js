@@ -1,7 +1,8 @@
-import { Server } from "socket.io";
-import { server } from "../index.js";
+import {Server} from "socket.io";
+import { createServer } from "http";
 
-export const io = new Server(server);
+export const httpServer = createServer()
+export const io = new Server(httpServer);
 
 let userRoom = null;
 io.on("connection", (socket) => {
@@ -17,4 +18,5 @@ io.on("connection", (socket) => {
         }
     })
 });
+
 
