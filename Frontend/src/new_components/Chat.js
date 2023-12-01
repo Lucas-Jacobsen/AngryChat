@@ -13,7 +13,7 @@ export default function Chat(props) {
     const [isLoading, setLoading] = useState(false);
     const [messages, setMessages] = useState([]);
 
-    const socket = io("https://angrychat-backend-98dcd3d26a9e.herokuapp.com:3002");
+    const socket = io("https://angrychat-backend-98dcd3d26a9e.herokuapp.com");
 
     useEffect(() => {
         const room = 1;
