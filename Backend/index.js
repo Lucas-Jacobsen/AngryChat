@@ -132,7 +132,7 @@ app.use((req, res, next) => {
     next();
 })
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Listening on port ${port}`);
 })
 
