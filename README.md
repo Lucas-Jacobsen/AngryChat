@@ -16,8 +16,8 @@ AngryChat is a unique messaging web app that adds a humorous twist to your regul
 - **Node.js:** An open-source, cross-platform JavaScript runtime for server-side development.
 - **Express:** A minimal and flexible Node.js web application framework for building robust APIs.
 - **OpenAI API:** Tap into OpenAI's advanced natural language processing capabilities to enhance the conversational experience.
-- **Clerk:** A user authentication and identity management solution for modern web applications.
-- **WebSocket:** Enable real-time bidirectional communication between clients and servers for seamless live updates.
+- **ClerkJs:** A user authentication and identity management solution for modern web applications.
+- **WebSocket.io:** Enable real-time bidirectional communication between clients and servers for seamless live updates.
 
 ## Contributors
 
@@ -25,15 +25,11 @@ Meet the awesome developers behind AngryChat:
 
 ### Grant Lindquist 
 
-<!--![Grant](url-to-image) -->
-
 - **Role:** Project Manager 
 - **GitHub:** [![Grant Lindquist - Github](https://img.shields.io/badge/GitHub-GrantLindquist-blue?style=flat-square&logo=github)](https://github.com/GrantLindquist)
 - **LinkedIn:** [![Grant Lindquist - LinkedIn](https://img.shields.io/badge/LinkedIn-GrantLindquist-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/glindquist-dev/)
 
 ### Noah Ice
-
-<!--![Noah](url-to-image) -->
 
 - **Role:** Developer
 - **GitHub:** [![Noah Ice - Github](https://img.shields.io/badge/GitHub-NoahIce-blue?style=flat-square&logo=github)](https://github.com/NoahIce)
@@ -41,15 +37,11 @@ Meet the awesome developers behind AngryChat:
 
 ### Ivan Gudino
 
-<!-- ![Ivan](url-to-image) -->
-
 - **Role:** Developer
 - **GitHub:** [![Ivan Gudino - Github](https://img.shields.io/badge/GitHub-Raptas1-blue?style=flat-square&logo=github)](https://github.com/Raptas1)
 - **LinkedIn:** [![Ivan Gudino - LinkedIn](https://img.shields.io/badge/LinkedIn-IvanGudino-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/ivan-gudino-a2b942262/)
 
 ### Lucas Jacobsen
-
-<!-- ![Lucas](url-to-image) -->
 
 - **Role:** Developer
 - **GitHub:** [![Lucas Jacobsen - Github](https://img.shields.io/badge/GitHub-lucas--jacobsen-blue?style=flat-square&logo=github)](https://github.com/lucas-jacobsen)
