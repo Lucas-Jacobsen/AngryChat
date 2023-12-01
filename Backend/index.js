@@ -1,14 +1,14 @@
-import express from "express"
+import express from "express";
 import cors from "cors";
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import { DAO } from "./services/DAO.js";
+import { createServer } from 'http';
 import "./services/WebSockets.js";
-
 
 dotenv.config();
 const app = express();
-const port =  process.env.PORT || 3000;
-export const server = require('http').Server(app);
+const port = process.env.PORT || 3000;
+const server = createServer(app);
 //import cors from 'cors';
 
 
