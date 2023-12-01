@@ -28,31 +28,31 @@ Meet the awesome developers behind AngryChat:
 <!--![Grant](url-to-image) -->
 
 - **Role:** Project Manager 
-- **GitHub:** [Grant](https://github.com/GrantLindquist)
-- **Bio:** Enthusiastic coder with a passion for creating engaging web applications. Specializes in React and Node.js development.
+- **GitHub:** [Grant Lindquist - Github](https://github.com/GrantLindquist)
+- **LinkedIn:**[Grant Lindquist - LinkedIn](https://www.linkedin.com/in/glindquist-dev/)
 
 ### Noah Ice
 
  <!--![Noah](url-to-image) -->
 
 - **Role:** Developer
-- **GitHub:** [Noah](https://github.com/NoahIce)
-- **Bio:** Experienced backend engineer with a knack for building robust and scalable APIs. Loves working with databases and optimizing server-side performance.
-
+- **GitHub:** [Noah Ice - Github](https://github.com/NoahIce)
+- **LinkedIn:**[Noah Ice - LinkedIn]([https://github.com/NoahIce](https://www.linkedin.com/in/noah-ice-1333051b1/))
+- 
 ### Ivan Gudino
 
  <!-- ![Ivan](url-to-image) -->
 
 - **Role:** Developer
-- **GitHub:** [Ivan](https://github.com/Raptas1)
-- **Bio:** Creative frontend developer with an eye for design. Enjoys crafting beautiful and responsive user interfaces using React and modern web technologies.
-
+- **GitHub:** [Ivan Gudino -Github](https://www.linkedin.com/in/ivan-gudino-a2b942262/)
+- **LinkedIn:**[Ivan Gudino -LinkedIn](https://github.com/Raptas1)
+- 
 ### Lucas Jacobsen
 
 <!-- ![Lucas](url-to-image) -->
 
 - **Role:** Developer
-- **GitHub:** [Lucas](https://github.com/lucas-jacobsen)
-- **Bio:** Passionate about creating seamless and user-friendly experiences. Excels in user interface design and understands the importance of user-centered design principles.
+- **GitHub:** [Lucas Jacobsen -Github](https://github.com/lucas-jacobsen)
+- **LinkedIn:** [Lucas Jacobsen -LinkedIn](https://www.linkedin.com/in/lucas-jacobsen/)
 
 
