@@ -1,4 +1,5 @@
-# AngryChat
+# AngryChat  <img src="https://angrychat-frontend-d69df51a96e6.herokuapp.com/Frontend/angrychat.ico" alt="AngryChat" width="32"> 
+
 
 AngryChat is a unique messaging web app that adds a humorous twist to your regular conversations by transforming messages into passive-aggressive "angry" chats. This project utilizes the OpenAI API for natural language processing, Clerk for user authentication, and a custom Node.js/Express REST API backend. The frontend is developed using React, and live updates are achieved through the integration of WebSockets.
 
@@ -12,12 +13,13 @@ AngryChat is a unique messaging web app that adds a humorous twist to your regul
 
 ## Technologies Used
 
-- **React:** A popular JavaScript library for building interactive user interfaces.
-- **Node.js:** An open-source, cross-platform JavaScript runtime for server-side development.
-- **Express:** A minimal and flexible Node.js web application framework for building robust APIs.
-- **OpenAI API:** Tap into OpenAI's advanced natural language processing capabilities to enhance the conversational experience.
-- **ClerkJs:** A user authentication and identity management solution for modern web applications.
-- **WebSocket.io:** Enable real-time bidirectional communication between clients and servers for seamless live updates.
+-  ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=white) A popular JavaScript library for building interactive user interfaces.
+- ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white) An open-source, cross-platform JavaScript runtime for server-side development.
+- ![Express](https://img.shields.io/badge/-Express-000000?style=flat-square&logo=express&logoColor=white) A minimal and flexible Node.js web application framework for building robust APIs.
+- ![OpenAI](https://img.shields.io/badge/-OpenAI-008080?style=flat-square&logo=openai&logoColor=white) Tap into OpenAI's advanced natural language processing capabilities to enhance the conversational experience.
+- ![Clerk](https://img.shields.io/badge/-ClerkJs-34CC88?style=flat-square&logo=clerk&logoColor=white) A user authentication and identity management solution for modern web applications.
+- ![WebSocket](https://img.shields.io/badge/-WebSocket.io-010002?style=flat-square&logo=websocket&logoColor=white) Enable real-time bidirectional communication between clients and servers for seamless live updates.
+
 
 ## Contributors
 
