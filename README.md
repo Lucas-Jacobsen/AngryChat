@@ -13,13 +13,13 @@ AngryChat is a unique messaging web app that adds a humorous twist to your regul
 
 ## Technologies Used
 
-- ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=white) A popular JavaScript library for building interactive user interfaces.
+- ![React](https://img.shields.io/badge/-React-61DAFB?style=flat-square&logo=react&logoColor=white) Developed the interactive frontend user interface.
 - ![Node.js](https://img.shields.io/badge/-Node.js-339933?style=flat-square&logo=node.js&logoColor=white) An open-source, cross-platform JavaScript runtime for server-side development.
-- ![Express](https://img.shields.io/badge/-Express-000000?style=flat-square&logo=express&logoColor=white) A minimal and flexible Node.js web application framework for building robust APIs.
-- ![SQL](https://img.shields.io/badge/-SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white) Database management.
-- ![OpenAI](https://img.shields.io/badge/-OpenAI-008080?style=flat-square&logo=openai&logoColor=white) Tap into OpenAI's advanced natural language processing capabilities to enhance the conversational experience.
+- ![Express](https://img.shields.io/badge/-Express-000000?style=flat-square&logo=express&logoColor=white) Built the robust backend API for data processing.
+- ![SQL](https://img.shields.io/badge/-SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white) Managed the database for storing data.
+- ![OpenAI](https://img.shields.io/badge/-OpenAI-008080?style=flat-square&logo=openai&logoColor=white) Utilized for generating creative passive-aggressive responses.
 - ![Clerk](https://img.shields.io/badge/-ClerkJs-34CC88?style=flat-square&logo=clerk&logoColor=white) A user authentication and identity management solution for modern web applications.
-- ![WebSocket](https://img.shields.io/badge/-WebSocket.io-010002?style=flat-square&logo=websocket&logoColor=white) Enable real-time bidirectional communication between clients and servers for seamless live updates.
+- ![WebSocket](https://img.shields.io/badge/-WebSocket.io-010002?style=flat-square&logo=websocket&logoColor=white) Enable real-time communication between clients and servers for live updates.
 - ![Heroku](https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku&logoColor=white) Cloud platform used for hosting both the API backend and the frontend. 
 
 ## Check it out
