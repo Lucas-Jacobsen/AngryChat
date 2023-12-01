@@ -19,7 +19,12 @@ AngryChat is a unique messaging web app that adds a humorous twist to your regul
 - ![OpenAI](https://img.shields.io/badge/-OpenAI-008080?style=flat-square&logo=openai&logoColor=white) Tap into OpenAI's advanced natural language processing capabilities to enhance the conversational experience.
 - ![Clerk](https://img.shields.io/badge/-ClerkJs-34CC88?style=flat-square&logo=clerk&logoColor=white) A user authentication and identity management solution for modern web applications.
 - ![WebSocket](https://img.shields.io/badge/-WebSocket.io-010002?style=flat-square&logo=websocket&logoColor=white) Enable real-time bidirectional communication between clients and servers for seamless live updates.
+- ![Heroku](https://img.shields.io/badge/-Heroku-430098?style=flat-square&logo=heroku&logoColor=white) Cloud platform used for hosting both the API backend and the frontend. 
 
+## Check it out
+
+
+[![Start Messaging](https://img.shields.io/badge/Try%20Angrychat%20Now-FF5733?style=for-the-badge)](https://your-app-url-here)
 
 ## Contributors
 
