@@ -9,7 +9,8 @@
     "mysql": "^2.18.1",
     "node": "^21.1.0",
     "os": "^0.1.2",
-    "socket.io": "^4.7.2"
+    "socket.io": "^4.7.2",
+    "websocket": "^1.0.34"
   },
   "scripts": {
     "start": "node index.js"
