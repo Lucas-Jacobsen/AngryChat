@@ -39,7 +39,7 @@ Meet the awesome developers behind AngryChat:
 
 - **Role:** Developer
 - **GitHub:** [![Ivan Gudino - Github](https://img.shields.io/badge/GitHub-Raptas1-blue?style=flat-square&logo=github)](https://github.com/Raptas1)
-- **LinkedIn:** [![Noah Ice - LinkedIn](https://img.shields.io/badge/LinkedIn-NoahIce-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/ivan-gudino-a2b942262/)
+- **LinkedIn:** [![Noah Ice - LinkedIn](https://img.shields.io/badge/LinkedIn-ivan-gudino-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/ivan-gudino-a2b942262/)
 
 ### Lucas Jacobsen
 
