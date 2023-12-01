@@ -25,15 +25,11 @@ Meet the awesome developers behind AngryChat:
 
 ### Grant Lindquist 
 
-<!--![Grant](url-to-image) -->
-
 - **Role:** Project Manager 
 - **GitHub:** [![Grant Lindquist - Github](https://img.shields.io/badge/GitHub-GrantLindquist-blue?style=flat-square&logo=github)](https://github.com/GrantLindquist)
 - **LinkedIn:** [![Grant Lindquist - LinkedIn](https://img.shields.io/badge/LinkedIn-GrantLindquist-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/glindquist-dev/)
 
 ### Noah Ice
-
-<!--![Noah](url-to-image) -->
 
 - **Role:** Developer
 - **GitHub:** [![Noah Ice - Github](https://img.shields.io/badge/GitHub-NoahIce-blue?style=flat-square&logo=github)](https://github.com/NoahIce)
@@ -41,16 +37,12 @@ Meet the awesome developers behind AngryChat:
 
 ### Ivan Gudino
 
-<!-- ![Ivan](url-to-image) -->
-
 - **Role:** Developer
 - **GitHub:** [![Ivan Gudino - Github](https://img.shields.io/badge/GitHub-Raptas1-blue?style=flat-square&logo=github)](https://github.com/Lucas-Jacobsen)
 - **LinkedIn:** [![Ivan Gudino - LinkedIn](https://img.shields.io/badge/LinkedIn-Lucas-Jacobsen-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/Lucas-jacobsen)
 
 ### Lucas Jacobsen
 
-<!-- ![Lucas](url-to-image) -->
-
 - **Role:** Developer
-- **GitHub:** [![Lucas Jacobsen - Github](https://img.shields.io/badge/GitHub-Lucas-Jacobsen-blue?style=flat-square&logo=github)](https://github.com/Raptas1)
-- **LinkedIn:** [![Lucas Jacobsen - LinkedIn](https://img.shields.io/badge/LinkedIn-lucas-jacobsen-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/lucas-jacobsen/)
+- **GitHub:** [![Ivan Gudino - Github](https://img.shields.io/badge/GitHub-Raptas1-blue?style=flat-square&logo=github)](https://github.com/Lucas-Jacobsen)
+- **LinkedIn:** [![Ivan Gudino - LinkedIn](https://img.shields.io/badge/LinkedIn-Lucas-Jacobsen-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/Lucas-jacobsen)
