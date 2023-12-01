@@ -1,7 +1,7 @@
-import {Server} from "socket.io";
+import { Server } from "socket.io";
 import { server } from "../index.js";
 
-export const io = new Server();
+export const io = new Server(server);
 
 let userRoom = null;
 io.on("connection", (socket) => {
