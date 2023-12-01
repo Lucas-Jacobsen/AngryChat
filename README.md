@@ -28,31 +28,29 @@ Meet the awesome developers behind AngryChat:
 <!--![Grant](url-to-image) -->
 
 - **Role:** Project Manager 
-- **GitHub:** [Grant Lindquist - Github](https://github.com/GrantLindquist)
-- **LinkedIn:**[Grant Lindquist - LinkedIn](https://www.linkedin.com/in/glindquist-dev/)
+- **GitHub:** [![Grant Lindquist - Github](https://img.shields.io/badge/GitHub-GrantLindquist-blue?style=flat-square&logo=github)](https://github.com/GrantLindquist)
+- **LinkedIn:** [![Grant Lindquist - LinkedIn](https://img.shields.io/badge/LinkedIn-GrantLindquist-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/glindquist-dev/)
 
 ### Noah Ice
 
- <!--![Noah](url-to-image) -->
+<!--![Noah](url-to-image) -->
 
 - **Role:** Developer
-- **GitHub:** [Noah Ice - Github](https://github.com/NoahIce)
-- **LinkedIn:**[Noah Ice - LinkedIn]([https://github.com/NoahIce](https://www.linkedin.com/in/noah-ice-1333051b1/))
-- 
+- **GitHub:** [![Noah Ice - Github](https://img.shields.io/badge/GitHub-NoahIce-blue?style=flat-square&logo=github)](https://github.com/NoahIce)
+- **LinkedIn:** [![Noah Ice - LinkedIn](https://img.shields.io/badge/LinkedIn-NoahIce-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/noah-ice-1333051b1/)
+
 ### Ivan Gudino
 
- <!-- ![Ivan](url-to-image) -->
+<!-- ![Ivan](url-to-image) -->
 
 - **Role:** Developer
-- **GitHub:** [Ivan Gudino -Github](https://www.linkedin.com/in/ivan-gudino-a2b942262/)
-- **LinkedIn:**[Ivan Gudino -LinkedIn](https://github.com/Raptas1)
-- 
+- **GitHub:** [![Ivan Gudino - Github](https://img.shields.io/badge/GitHub-Raptas1-blue?style=flat-square&logo=github)](https://github.com/Raptas1)
+- **LinkedIn:** [![Ivan Gudino - LinkedIn](https://img.shields.io/badge/LinkedIn-IvanGudino-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/ivan-gudino-a2b942262/)
+
 ### Lucas Jacobsen
 
 <!-- ![Lucas](url-to-image) -->
 
 - **Role:** Developer
-- **GitHub:** [Lucas Jacobsen -Github](https://github.com/lucas-jacobsen)
-- **LinkedIn:** [Lucas Jacobsen -LinkedIn](https://www.linkedin.com/in/lucas-jacobsen/)
-
-
+- **GitHub:** [![Lucas Jacobsen - Github](https://img.shields.io/badge/GitHub-lucas-jacobsen-blue?style=flat-square&logo=github)](https://github.com/lucas-jacobsen)
+- **LinkedIn:** [![Lucas Jacobsen - LinkedIn](https://img.shields.io/badge/LinkedIn-lucas-jacobsen-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/lucas-jacobsen/)
