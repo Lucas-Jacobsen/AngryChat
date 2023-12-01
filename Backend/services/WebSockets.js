@@ -1,10 +1,7 @@
-import {Server} from "socket.io";
-import { createServer } from "http";
-
-export const httpServer = createServer()
-export const io = new Server(httpServer);
+import { io } from "../index.js";
 
 let userRoom = null;
+
 io.on("connection", (socket) => {
     console.log("Connected a User");
     socket.on("join", (room) => {
