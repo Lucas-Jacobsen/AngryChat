@@ -42,11 +42,13 @@ export default function Main(props) {
             <Grid item xs={3}>
                 <Sidebar user={props.user} userList={userList} setFocusedUser={setFocusedUser} />
             </Grid>
-            <Grid item xs={9} p={2}>
+            <Grid item xs={9} p={2} sx={{backgroundImage: `url(${process.env.PUBLIC_URL}/iconGrid.svg)`}}>
                 {focusedUser === undefined ? 
-                <Box style={{width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
-                    <Typography variant='h2'>No users selected...</Typography>
-                    <Typography variant='subtitle1'>Maybe you should do something about that. Idiot.</Typography>
+                <Box style={{display: 'flex', width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
+                    <Box textAlign='center'>
+                        <Typography variant='h2'>No users selected</Typography>
+                        <Typography variant='subtitle1' color='grey'>Maybe you should do something about that. Idiot.</Typography>
+                    </Box>
                 </Box> 
                 : <Chat user={props.user} focusedUser={focusedUser} />}
             </Grid>
