@@ -142,6 +142,7 @@ app.use((req, res, next) => {
 })
 
  httpServer.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+    console.log(httpServer)
+
 })
 
