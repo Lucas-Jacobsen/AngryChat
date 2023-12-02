@@ -143,6 +143,6 @@ app.use((req, res, next) => {
 
  httpServer.listen(port, () => {
     console.log(httpServer)
-    console.log(`Listening on port ${port}`);
+
 })
 
