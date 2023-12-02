@@ -35,15 +35,15 @@ export default function InviteUser(props) {
         await axios
             .post(
                 "https://angrychat-backend-98dcd3d26a9e.herokuapp.com/conversation?user_id=" +
-                    props.user.id +
-                    "&recipient_id=" +
-                    user.user_id +
-                    "&user_name=" +
-                    props.user.fullName +
-                    "&recipient_name=" +
-                    user.firstName +
-                    " " +
-                    user.lastName
+                props.user.id +
+                "&recipient_id=" +
+                user.user_id +
+                "&user_name=" +
+                props.user.fullName +
+                "&recipient_name=" +
+                user.firstName +
+                " " +
+                user.lastName
             )
             .then((results) => {
                 console.log(results);
@@ -53,19 +53,20 @@ export default function InviteUser(props) {
     }
 
     return (
-        <div style={{ textAlign: 'center', marginTop: '5%', paddingBottom:"5%"}}>
-            <hr style={{backgroundColor: 'grey'}}/>
-            <h3>Start a new Chat</h3>
+        <div style={{ textAlign: 'center', marginTop: '5%', paddingBottom: "5%" }}>
+            <Typography variant="h4" pb={2}>Start a new Chat</Typography>
             <Box>
                 <Autocomplete
                     disablePortal
                     id="combo-box"
-                    options={names} 
+                    options={names}
                     onChange={userChange}
                     renderInput={(params) => <TextField {...params} label="Select a User" />}
                 />
                 {error && <Typography color="error">{error}</Typography>}
-                <Button onClick={startChat} style={{fontSize:'1.5rem'}}>Start Chat</Button>
+                <Box pt={2}>
+                    <Button sx={{ backgroundColor: 'red', ":hover": { backgroundColor: 'orange' } }} variant={'contained'} onClick={startChat}>Start new chat</Button>
+                </Box>
             </Box>
         </div>
     );

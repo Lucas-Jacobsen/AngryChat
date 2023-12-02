@@ -7,6 +7,10 @@ import SendIcon from '@mui/icons-material/Send';
 import gptMessageService from "../services/gptMessageService";
 import { Stack, Box, Typography, TextField, IconButton, CircularProgress } from '@mui/material';
 
+import SimpleBar from 'simplebar-react';
+import 'simplebar-react/dist/simplebar.min.css';
+import '../index.css';
+
 export default function Chat(props) {
 
     const [input, setInput] = useState('');
@@ -98,10 +102,16 @@ export default function Chat(props) {
 
     return (
         <Box style={{height: '100vh'}}>
-            <Stack spacing={2} style={{maxHeight: '80vh', height: '80vh', overflow: 'auto'}} direction='column'>
-                {messageList}
-            </Stack>
-            <Stack spacing={2} tyle={{height: '10vh', alignItems: 'center'}} direction='row'>
+            {/* 
+                This is supposed to be a styled scrollbar but its not working. 
+                TODO: figure it out later 
+            */}
+            <SimpleBar>
+                <Stack spacing={2} style={{maxHeight: '80vh', height: '80vh', overflow: 'auto'}} direction='column'>
+                    {messageList}
+                </Stack>
+            </SimpleBar>
+            <Stack spacing={2} sx={{backgroundColor: '#000000'}} style={{height: '10vh', alignItems: 'center'}} direction='row'>
                 <TextField 
                     value={input}
                     disabled={isLoading ? true : false} 
@@ -129,7 +139,7 @@ const styles = {
     },
     outgoing: {
         float: 'right',
-        backgroundColor: 'red'
+        background: 'linear-gradient(to bottom, orange, red)',
     },
     incoming: {
         float: 'left',

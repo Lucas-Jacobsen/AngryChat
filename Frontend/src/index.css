@@ -18,3 +18,8 @@ code {
   align-items: center;
   justify-content: center;
 }
+
+.simplebar-scrollbar::before {
+  background-color: red;
+}
+

@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
+  Box,
   Drawer,
   Divider,
   Stack,
   List,
-  ListItem,
-  ListItemText,
-  Box,
-  Button,
   CardActionArea,
   useMediaQuery,
   useTheme,
+  IconButton,
 } from "@mui/material";
 import Nameplate from "./Nameplate";
 import InviteUser from "./InviteUser";
+import { MenuOutlined, CloseOutlined } from "@ant-design/icons"
+import NewChatModal from "./NewChatModal";
 
 export default function Sidebar(props) {
   const [sidebar, setSidebar] = useState([]);
@@ -34,7 +34,7 @@ export default function Sidebar(props) {
     await axios
       .get(
         "https://angrychat-backend-98dcd3d26a9e.herokuapp.com/conversationByUser?user_id=" +
-          props.user.id
+        props.user.id
       )
       .then(async (results) => {
         var conversations = results.data;
@@ -66,39 +66,33 @@ export default function Sidebar(props) {
   return (
     <>
       {!isMobile && (
-        <Stack direction="column" sx={{ width: "75%" }}>
+        <Stack direction="column" sx={{ width: "100%", boxShadow: "20px 0px 10px rgba(255, 0, 0, 0)" }}>
           <List style={{ maxHeight: "500px", overflowY: "auto" }}>
             {sidebar}
           </List>
-          <InviteUser
-            user={props.user}
-            setFocusedUser={props.setFocusedUser}
-            update={update}
-          />
+          <Box style={{ justifyContent: 'center', display: 'flex' }}>
+            <NewChatModal user={props.user} setFocusedUser={props.setFocusedUser} update={update} />
+          </Box>
         </Stack>
       )}
       {isMobile && (
         <>
-          <Button onClick={toggleDrawer}>
-            {isDrawerOpen ? "Close Sidebar" : "Open Sidebar"}
-          </Button>
+          <IconButton onClick={toggleDrawer}>
+            <MenuOutlined />
+          </IconButton>
           <Drawer
             anchor="left"
             open={isDrawerOpen}
             onClose={toggleDrawer}
           >
-            <Button onClick={toggleDrawer} style={{ padding: "15%" }}>
-              Close Sidebar
-            </Button>
-            <Stack direction="column" sx={{ width: "75%", paddingBottom: "10%" }}>
+            <IconButton sx={{ width: 30, paddingLeft: 3, paddingTop: 2 }} onClick={toggleDrawer}>
+              <CloseOutlined />
+            </IconButton>
+            <Stack direction="column" sx={{ width: "100%", paddingBottom: "10%" }}>
               <List style={{ maxHeight: "100%", overflowY: "auto" }}>
                 {sidebar}
               </List>
-              <InviteUser
-                user={props.user}
-                setFocusedUser={props.setFocusedUser}
-                update={update}
-              />
+              <NewChatModal user={props.user} setFocusedUser={props.setFocusedUser} update={update} />
             </Stack>
           </Drawer>
         </>
