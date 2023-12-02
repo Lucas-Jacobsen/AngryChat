@@ -2,8 +2,8 @@ import express from "express"
 import cors from "cors";
 import dotenv from 'dotenv'
 import { DAO } from "./services/DAO.js";
-import "./services/WebSockets.js";
-
+import {Server} from "socket.io";
+import { createServer } from "http";
 
 
 dotenv.config();
@@ -11,11 +11,20 @@ const app = express();
 const port =  process.env.PORT || 3000;
 //import cors from 'cors';
 
+export const httpServer = createServer(app)
+
+export const io = new Server(httpServer, {
+  cors: {
+    origin: "https://angrychat-frontend-d69df51a96e6.herokuapp.com",
+    methods: ["GET", "POST"],
+  },
+});
+
+import("./services/WebSockets.js");
 
 let dao = new DAO();
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded());
 
 
 
@@ -132,6 +141,7 @@ app.use((req, res, next) => {
     next();
 })
 
-app.listen(port, () => {
+ httpServer.listen(port, () => {
     console.log(`Listening on port ${port}`);
 })
+
