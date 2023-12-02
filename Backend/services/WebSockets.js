@@ -1,9 +1,9 @@
-import {Server} from "socket.io";
-
-export const io = new Server();
+import { io } from "../index.js";
 
 let userRoom = null;
+
 io.on("connection", (socket) => {
+    console.log("Connected a User");
     socket.on("join", (room) => {
         userRoom = room;
         socket.join(userRoom);
@@ -15,6 +15,3 @@ io.on("connection", (socket) => {
         }
     })
 });
-
-io.listen(3002);
-
