@@ -67,7 +67,7 @@ export default function Sidebar(props) {
     <>
       {!isMobile && (
         <Stack direction="column" sx={{ width: "100%", boxShadow: "20px 0px 10px rgba(255, 0, 0, 0)" }}>
-          <List style={{ maxHeight: "500px", overflowY: "auto" }}>
+          <List style={{ maxHeight: "80vh", overflowY: "auto" }}>
             {sidebar}
           </List>
           <Box style={{ justifyContent: 'center', display: 'flex' }}>

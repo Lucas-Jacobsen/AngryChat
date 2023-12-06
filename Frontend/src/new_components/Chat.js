@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {io} from "socket.io-client"
+import { io } from "socket.io-client"
 
 import { useEffect } from "react";
 import axios from "axios";
@@ -68,15 +68,15 @@ export default function Chat(props) {
 
         // Handle send message logic
         let endRequest = props.user.id === props.focusedUser.user_id ? props.focusedUser.recipient_id : props.focusedUser.user_id
-        
+
         // Translates message to angry
         const translatedMessage = await gptMessageService.translateMessage(message);
-        
+
         // Sends to API
         axios.post("https://angrychat-backend-98dcd3d26a9e.herokuapp.com/messages?text=" + translatedMessage + "&user_id=" + props.user.id + "&recipient_id=" + endRequest).then((results) => {
             console.log(results)
         })
-        let socketMessage = {"text": translatedMessage, "user_id": props.user.id, "recipient_id": props.recipient_id};
+        let socketMessage = { "text": translatedMessage, "user_id": props.user.id, "recipient_id": props.recipient_id };
         socket.emit("message", socketMessage);
 
         // End load state
@@ -93,41 +93,44 @@ export default function Chat(props) {
     }
 
     const messageList = messages.map((message) => {
-        return (<Box style={{width: '100%'}}>
-            <Box style={{...styles.message, ...(message.sentByUser ? styles.outgoing : styles.incoming)}}>
+        return (<Box style={{ width: '100%' }}>
+            <Box style={{ ...styles.message, ...(message.sentByUser ? styles.outgoing : styles.incoming) }}>
                 <Typography p={1} variant='subtitle1'>{message.message}</Typography>
             </Box>
         </Box>)
     });
 
     return (
-        <Box style={{height: '100vh'}}>
+        <Box style={{ height: '100vh' }}>
             {/* 
                 This is supposed to be a styled scrollbar but its not working. 
                 TODO: figure it out later 
             */}
             <SimpleBar>
-                <Stack spacing={2} style={{maxHeight: '80vh', height: '80vh', overflow: 'auto'}} direction='column'>
+                <Stack spacing={2} p={2} style={{ maxHeight: '75vh', height: '75vh', overflow: 'auto' }} direction='column'>
                     {messageList}
                 </Stack>
             </SimpleBar>
-            <Stack spacing={2} sx={{backgroundColor: '#000000'}} style={{height: '10vh', alignItems: 'center'}} direction='row'>
-                <TextField 
-                    value={input}
-                    disabled={isLoading ? true : false} 
-                    style={{width: '90%'}} 
-                    placeholder="Enter a message" 
-                    onChange={(event) => {setInput(event.target.value)}}
-                    onKeyDown={(event) => {
-                        if(event.key === "Enter"){
-                            handleSend(input)
-                        }
-                    }}
-                />
-                {isLoading ? <CircularProgress/> : <IconButton style={{width: 50, height: 50}} onClick={() => handleSend(input)}>
-                    <SendIcon/>    
-                </IconButton>}
-            </Stack>
+            <Box sx={{ backgroundColor: '#000000' }} height={'15vh'}>
+                <Stack spacing={2} px={3} direction='row' height={'100%'} style={{ alignItems: 'center' }}>
+                    <TextField
+                        value={input}
+                        disabled={isLoading ? true : false}
+                        style={{ width: '90%' }}
+                        placeholder="Enter a message"
+                        onChange={(event) => { setInput(event.target.value) }}
+                        onKeyDown={(event) => {
+                            if (event.key === "Enter") {
+                                handleSend(input)
+                            }
+                        }}
+                    />
+                    {isLoading ? <CircularProgress /> : <IconButton style={{ width: 50, height: 50 }} onClick={() => handleSend(input)}>
+                        <SendIcon />
+                    </IconButton>}
+                </Stack>
+            </Box>
+
         </Box>
     );
 }
