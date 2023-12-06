@@ -35,23 +35,25 @@ export default function Main(props) {
     }
 
     return (
-        <Grid container style={{maxHeight: '100vh', overflow: 'hidden'}}>
-            <Grid item xs={12}>
-                <Navbar />
+        <Box style={{ height: '100vh', overflow: 'hidden' }}>
+            <Box style={{ height: 75}}>
+                <Navbar/>
+            </Box>
+            <Grid container style={{height: 'calc(100vh - 75)'}}>
+                <Grid item xs={1} sm={4} md={3}>
+                    <Sidebar user={props.user} userList={userList} setFocusedUser={setFocusedUser} />
+                </Grid>
+                <Grid item xs={11} sm={8} md={9} sx={{ backgroundImage: `url(${process.env.PUBLIC_URL}/iconGrid.svg)` }}>
+                    {focusedUser === undefined ?
+                        <Box style={{ display: 'flex', width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
+                            <Box textAlign='center'>
+                                <Typography variant='h2'>No users selected</Typography>
+                                <Typography variant='subtitle1' color='grey'>Maybe you should do something about that. Idiot.</Typography>
+                            </Box>
+                        </Box>
+                        : <Chat user={props.user} focusedUser={focusedUser} />}
+                </Grid>
             </Grid>
-            <Grid item xs={3}>
-                <Sidebar user={props.user} userList={userList} setFocusedUser={setFocusedUser} />
-            </Grid>
-            <Grid item xs={9} p={2} sx={{backgroundImage: `url(${process.env.PUBLIC_URL}/iconGrid.svg)`}}>
-                {focusedUser === undefined ? 
-                <Box style={{display: 'flex', width: '100%', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
-                    <Box textAlign='center'>
-                        <Typography variant='h2'>No users selected</Typography>
-                        <Typography variant='subtitle1' color='grey'>Maybe you should do something about that. Idiot.</Typography>
-                    </Box>
-                </Box> 
-                : <Chat user={props.user} focusedUser={focusedUser} />}
-            </Grid>
-        </Grid>
+        </Box>
     );
 }

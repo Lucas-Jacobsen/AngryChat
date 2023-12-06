@@ -21,8 +21,9 @@ const gptMessageService = {
                         You may not use swear words, but the usage of comical insults is encouraged.
                         Make sure not to respond to the message, rather, rewrite the message into something new.`
                 }
-            ]
+            ],
         })
+        console.log(completion.choices[0].message.content)
         return completion.choices[0].message.content;
     },
 }
